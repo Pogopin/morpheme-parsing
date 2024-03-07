@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + TS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body>
+    <main class="container">      
+      <div class="info">
+        <h1 class="info__title">Разбор слов по составу</h1>
+        <h3 class="info__text">Разбор слова по составу, или морфемный разбор, — выделение частей, из которых слово состоит.</h3>
+      </div>
+      <form class="form">
+        <label for="inputPassword5" class="form-label">Разобрать по составу</label>
+        <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Введите слово русскими буквами">
+        <div id="passwordHelpBlock" class="form__text">
+          <button type="button" class="btn btn-info">Поиск</button>
+        </div>
+      </form>
+      <div class="attention">
+        <h4 class="attention__title">Особенности разборов</h4>
+        <p class="attention__text">Обратите внимание: морфемные разборы одних и тех же слов могут быть сделаны по-разному в разных словарях, разными учителями и филологами, в школе и в университете. Каждый «источник» аргументирует разбор по-своему и считает свой разбор правильным.</p>
+        <p class="attention__text">Разные учителя придерживаются разных программ определения морфем в словах. Ярким примером служат инфинитивы глаголов. Например в слове жить: в одних школах ть отмечается как суффикс, в других — как окончание, в третьих — как суффикс с последующим нулевым окончанием. Мы выделяем морфемы по первому варианту.</p>
+        <p class="attention__text">Образовательные программы школы и университета в части разбора слов могут различаться. В университетах учитывают этимологию слов, выделяют нулевой суффикс (Азов, бег), рассматривают словообразования от нулевого корня и другие сложные примеры. Мы используем программу, ориентированную на школу, и деление на морфемы по словарю <strong>А.Н. Тихонова.</strong></p>
+        <p class="attention__text">Заметим, что есть различия в словаре <strong>А.Н. Тихонова</strong> и словаре <strong>Т.Ф. Ефремовой</strong>. Так <strong>А.Н. Тихонов</strong> части некоторых слов «вносит» в один корень, при этом <strong>Т.Ф. Ефремова</strong> выделяет в словах приставку, суффиксы, учитывая этимологию. Примеры таких слов: благодарность, превосходство, прекрасный. Современные учёные не могут сойтись во мнении единого верного разбора отдельных слов русского языка, поэтому разные варианты считают допустимыми.</p>
+        <p class="attention__text">При разборе слов следует помнить, что бывают слова, содержащие нулевое окончание (автобус), не имеющие окончания (ателье), имеющие несколько корней (авиапочта) и другие сложные варианты. К сложным вариантам на нашем сайте даны объяснения.</p>
+      </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script type="module" src="/src/frontend/main.ts"></script>
+  </body>
+</html>

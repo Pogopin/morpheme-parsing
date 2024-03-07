@@ -1,0 +1,26 @@
+@import url('./reset.css');
+@import url('./variables.css');
+
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.info__title {
+  font-weight: 300;
+}
+.info__text {
+  background-color: #e9d2fd;
+  font-weight: 200;
+  margin-top: 20px;
+  font-size: 20px;
+}
+.form {
+  box-shadow: 0 0 1rem 0.125rem rgba(0 0 0/.1);
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin: 30px 0;
+}
+.form__text {
+  margin-top: 20px;
+}
