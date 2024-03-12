@@ -24,3 +24,31 @@
 .form__text {
   margin-top: 20px;
 }
+.content {
+  margin-top: 20px;
+}
+.content__title {  
+  font-weight: 300;
+}
+.content__result {
+  box-shadow: 0 0 1rem 0.125rem rgba(0 0 0/.1);
+  padding: 50px 15px;
+  border-radius: 5px;
+  margin: 30px 0;
+  font-size: 30px;
+}
+.red {
+  color: #D60313;
+}
+.stamm {
+  background-image: url('../images/stamm.svg');
+}
+.wurzel {
+  background-image: url('../images/wurzel.svg');
+}
+.suffix {
+  background-image: url('../images/suffix.svg');
+}
+.endung {
+  background-image: url('../images/endung.svg');
+}
