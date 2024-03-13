@@ -6,7 +6,6 @@ type Data = {
     tableData: []
 }
 const russianLetters: RegExp = /^[а-яА-ЯёЁ]+$/;
-
 inputValue.addEventListener('input', (event) => {    
     let userInput = (event.target as HTMLInputElement).value;
 
@@ -29,8 +28,7 @@ const getData = async (value: string) => {
     }
     const data:Data = await response.json();
     let template: string;
-    // console.log(data)    
-
+    // console.log(data)
     if(!checkObject(data)) {
         if (contentResult) {
             template = data.content;
@@ -48,13 +46,11 @@ const getData = async (value: string) => {
             template = '<span class="error">такого слова нет в словарях</span>'
             contentResult.innerHTML = template;
         }
-    }
-    
+    }    
 }
 const checkObject = (obj: Object): boolean => {
     return Object.keys(obj).length == 0;
 }
-
 // getData();
 
 // Разбор по составу слова: «<strong>лоп<span class="red">а</span>та</strong>» — начальная форма существительного [И.п., ед.ч.]
