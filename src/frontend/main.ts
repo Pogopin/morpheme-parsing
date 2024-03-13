@@ -20,7 +20,7 @@ btn.addEventListener('click', () => {
     } else { toast.show(); }    
 });
 const getData = async (value: string) => {
-    const response = await fetch('http://localhost:3000/search', {
+    const response = await fetch('morpheme-parsing.vercel.app/search', {
         method: "POST",
         body: encodeURIComponent(value)
     })
