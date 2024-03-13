@@ -17,17 +17,15 @@
         <label for="inputValue" class="form-label">Разобрать по составу</label>
         <input type="text" id="inputValue" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Введите слово русскими буквами">
         <div id="passwordHelpBlock" class="form__text">
-          <button type="button" class="btn btn-info">Поиск</button>
+          <button type="button" class="btn btn-info">Поиск</button>      
+
         </div>
       </form>
       <div class="content">
         <h4 class="content__title">Морфемный разбор слова</h4>
-        <div class="content__result">
-
-        </div>
+        <p class="content__text"></p>
+        <div class="content__result"></div>
       </div>
-     
-
       <div class="attention">
         <h4 class="attention__title">Особенности разборов</h4>
         <p class="attention__text">Обратите внимание: морфемные разборы одних и тех же слов могут быть сделаны по-разному в разных словарях, разными учителями и филологами, в школе и в университете. Каждый «источник» аргументирует разбор по-своему и считает свой разбор правильным.</p>
@@ -36,7 +34,25 @@
         <p class="attention__text">Заметим, что есть различия в словаре <strong>А.Н. Тихонова</strong> и словаре <strong>Т.Ф. Ефремовой</strong>. Так <strong>А.Н. Тихонов</strong> части некоторых слов «вносит» в один корень, при этом <strong>Т.Ф. Ефремова</strong> выделяет в словах приставку, суффиксы, учитывая этимологию. Примеры таких слов: благодарность, превосходство, прекрасный. Современные учёные не могут сойтись во мнении единого верного разбора отдельных слов русского языка, поэтому разные варианты считают допустимыми.</p>
         <p class="attention__text">При разборе слов следует помнить, что бывают слова, содержащие нулевое окончание (автобус), не имеющие окончания (ателье), имеющие несколько корней (авиапочта) и другие сложные варианты. К сложным вариантам на нашем сайте даны объяснения.</p>
       </div>
-    </main>
+    </main>   
+   
+    <!-- toast -->
+    <div class="position-fixed top-0 left-0 p-3" style="z-index: 11">
+      <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">               
+          <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#ff1800"></rect></svg>
+
+          <strong class="me-auto">Неверный ввод</strong>
+          <small>только что</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          <strong>Введите только русские буквы без пробелов</strong>
+        </div>
+      </div>
+    </div>
+   
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script type="module" src="/src/frontend/main.ts"></script>
   </body>

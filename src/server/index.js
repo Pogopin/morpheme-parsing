@@ -16,10 +16,9 @@ app.use(express.text());
 app.listen(port, () => {
     console.log(`Start app on ${port}`)
 })  
-app.post('/w', async(req, res) => {
+app.post('/search', async(req, res) => {
   try {
-    const requestBody = req.body;
-    console.log(requestBody);
+    const requestBody = req.body;    
     const fullData = await fetchUdarenie(requestBody);     
     res.setHeader('Access-Control-Allow-Origin', '*'); // Разрешает запросы со всех доменов
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST'); // Разрешает методы
@@ -36,13 +35,11 @@ app.post('/w', async(req, res) => {
 const fetchUdarenie = async(wordCode) => {
   let html = null;
   try {     
-    const res = await axios.get(url + `${wordCode}`)     
-    // const res = await axios.get(url + '%D0%BB%D0%BE%D0%B4%D0%BA%D0%B0')
+    const res = await axios.get(url + `${wordCode}`);
     html = res.data;      
   } catch (error){    
       console.log(error)    
   }
-
   const dom = new JSDOM(html);
   const document = dom.window.document;  
   
@@ -63,7 +60,7 @@ const fetchUdarenie = async(wordCode) => {
       content: content.innerHTML,
       tableData: tableData
     }
-    console.log(data)
+    // console.log(data)
     return JSON.stringify(data)
   } else {
       console.log('Такого слова нет в словаре');
