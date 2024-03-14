@@ -1,4 +1,4 @@
-import express from 'express';
+const express = require('express');
 const app = express();
 const port = 3000;
 // app.use(cors({
@@ -6,9 +6,8 @@ const port = 3000;
 //   method: ["GET"],
 //   credentials: true
 // }))
-
-import axios from 'axios';
-import jsdom from 'jsdom';
+const axios = require('axios');
+const jsdom = require("jsdom");
 
 const { JSDOM } = jsdom;
 const url = 'https://udarenieru.ru/index.php?word=on&morph_word=';
@@ -17,6 +16,7 @@ app.listen(port, () => {
     console.log(`Start app on ${port}`)
 })  
 app.post('/search', async(req, res) => {
+  console.log('sdfdsf')
   try {
     const requestBody = req.body;    
     const fullData = await fetchUdarenie(requestBody);     
@@ -44,7 +44,6 @@ const fetchUdarenie = async(wordCode) => {
   const document = dom.window.document;  
   
   if(document.querySelector('#kuz_interpret') !== null) {  
-  
     const firstChunk = document.querySelector('#kuz_interpret').querySelector('tbody > tr > td').innerHTML;
     const endChunkPosition = firstChunk.indexOf('<h3');
     const usefulData = firstChunk.slice(0, endChunkPosition - 3);
@@ -59,14 +58,12 @@ const fetchUdarenie = async(wordCode) => {
       wordInformation: usefulData,
       content: content.innerHTML,
       tableData: tableData
-    }
-    // console.log(data)
+    }    
     return JSON.stringify(data)
   } else {
       console.log('Такого слова нет в словаре');
       return {}
   }
-
 }
 
 // fetchUdarenie()
