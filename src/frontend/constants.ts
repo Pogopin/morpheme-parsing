@@ -9,4 +9,6 @@ const btn = document.querySelector('.btn-info') as HTMLInputElement;
 const word = document.querySelector('.content__text');
 const mParse = document.querySelector('.morphology__parse');
 
-export  { toast, contentResult, inputValue, btn, word, mParse }
+const spinner = document.querySelector('.spinner-border');
+
+export  { toast, contentResult, inputValue, btn, word, mParse, spinner };

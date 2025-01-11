@@ -1,11 +1,12 @@
 // import './assets/css/style.css';
-import { toast, contentResult, inputValue, btn, word } from './constants';
+import { toast, contentResult, inputValue, btn, word, spinner } from './constants';
 type Data = {
     wordInformation: string;
     content: string;
     tableData: []
 }
 const russianLetters: RegExp = /^[а-яА-ЯёЁ]+$/;
+
 inputValue.addEventListener('input', (event) => {    
     let userInput = (event.target as HTMLInputElement).value;
 
@@ -14,12 +15,13 @@ inputValue.addEventListener('input', (event) => {
     }
 })
 btn.addEventListener('click', () => {
-    if(russianLetters.test(inputValue.value)) {        
+    if(russianLetters.test(inputValue.value)) {    
+        spinner.classList.remove('none');
         getData(inputValue.value);
     } else { toast.show(); }    
 });
 const getData = async (value: string) => {
-    const response = await fetch('https://morpheme-parsing.vercel.app/search', {
+    const response = await fetch('https://morpheme-parsing-api.vercel.app/search', {
         method: "POST",
         body: encodeURIComponent(value)
     })
@@ -27,10 +29,12 @@ const getData = async (value: string) => {
         throw new Error('Network response was not ok');
     }
     const data:Data = await response.json();
-    let template: string;
-    // console.log(data)
+    let template: string;    
+
     if(!checkObject(data)) {
         if (contentResult) {
+
+            spinner.classList.add('none');
             template = data.content;
             word.innerHTML = data.wordInformation;
             contentResult.innerHTML = template;
@@ -46,11 +50,13 @@ const getData = async (value: string) => {
             template = '<span class="error">такого слова нет в словарях</span>'
             contentResult.innerHTML = template;
         }
-    }    
+    }
+    
 }
 const checkObject = (obj: Object): boolean => {
     return Object.keys(obj).length == 0;
 }
+
 // getData();
 
 // Разбор по составу слова: «<strong>лоп<span class="red">а</span>та</strong>» — начальная форма существительного [И.п., ед.ч.]
